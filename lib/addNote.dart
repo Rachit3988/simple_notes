@@ -41,9 +41,11 @@ class _AddNoteState extends State<AddNote> {
                 await DatabaseHelper.instance.add(
                   Grocery(
                     name: textController.text,
-                    // another: anotherController.text,
+                    another: anotherController.text,
                   ),
                 );
+                print(textController.text);
+                print(anotherController.text);
               },
             ),
           ],

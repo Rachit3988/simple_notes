@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         return Center(
                           child: ListTile(
                             title: Text(grocery.name),
-                            // subtitle: Text(grocery.another),
+                            subtitle: Text(grocery.another),
                             onLongPress: () {
                               setState(() {
                                 DatabaseHelper.instance.remove(grocery.id!);
@@ -72,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
             }),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.save),
+        child: const Icon(Icons.add),
         onPressed: () {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => AddNote()));
@@ -86,21 +86,25 @@ class _HomeScreenState extends State<HomeScreen> {
 class Grocery {
   final int? id;
   final String name;
-  // final String another;
+  final String another;
 
-  Grocery({this.id, required this.name});
+  Grocery({
+    this.id,
+    required this.name,
+    required this.another,
+  });
 
   factory Grocery.fromMap(Map<String, dynamic> json) => Grocery(
         id: json['id'],
         name: json['name'],
-        // another: json['another'],
+        another: json['another'],
       );
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
       'name': name,
-      // 'another': another,
+      'another': another,
     };
   }
 }

@@ -29,7 +29,7 @@ class DatabaseHelper {
     await db.execute('''
         CREATE TABLE groceries(
           id INTEGER PRIMARY KEY,
-          name TEXT
+          name TEXT,
           another TEXT
         )     
      ''');
